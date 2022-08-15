@@ -14,7 +14,7 @@
         <div class="note-title">
           <input type="text" v-model:value="curNote.title" @input="updateNote" @keydown="statusText='正在输入...'" placeholder="输入标题">
         </div>
-        <div class="editor">
+        <div class="editor" >
           <textarea v-show="isShowPreview"  v-model:value="curNote.content" @input="updateNote" @keydown="statusText='正在输入...'" placeholder="输入内容, 支持 markdown 语法"></textarea>
           <div class="preview markdown-body" v-html="previewContent" v-show="!isShowPreview">
           </div>
@@ -29,6 +29,7 @@
 import NoteSidebar from '../components/NoteSidebar'
 import _ from 'lodash'
 import MarkdownIt from 'markdown-it'
+import 'github-markdown-css/github-markdown.css'
 
 let md = new MarkdownIt()
 export default {
@@ -145,7 +146,7 @@ export default {
     height: ~"calc(100% - 70px)";
     position: relative;
   }
-  textarea, .preview {
+  textarea, .preview  {
     position: absolute;
     width: 100%;
     height: 100%;
